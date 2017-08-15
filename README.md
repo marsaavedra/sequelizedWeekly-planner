@@ -1,0 +1,1 @@
+# sequelizedWeekly-planner

@@ -1,0 +1,56 @@
+<h1>Weekly Planner!</h1>
+
+<h2>Tasks that Are Not Done!</h2>
+
+<ul>
+  {{#each planner}}
+    {{#unless this.done}}
+      <li>
+        {{this.task_name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="done" value="true">
+          <button type="submit">Task Complete!</button>
+        </form>
+
+        
+      </li>
+    {{/unless}}
+  {{/each}}
+</ul>
+
+<h2>Tasks that are Completed!</h2>
+
+<ul>
+  {{#each planner}}
+    {{#if this.done}}
+      <li>
+        {{this.task_name}}
+
+        <form action="/{{this.id}}?_method=PUT" method="POST">
+          <input type="hidden" name="done" value="false">
+          <button type="submit">Incomplete!</button>
+        </form>
+
+        
+      </li>
+    {{/if}}
+  {{/each}}
+</ul>
+
+<h2>Add a Task</h2>
+<form class="create-update-form" action="/" method="POST">
+
+  <div class="form-group">
+    <label for="ca">Task Name:</label>
+    <input type="text" id="ca" name="task_name">
+  </div>
+
+  <div class="form-group">
+    <label for="slee">Completed?</label><br>
+    <input type="radio" name="done" value="1" checked>Done!<br>
+    <input type="radio" name="done" value="0"> Not Done!
+  </div>
+    
+    <button type="submit">Add Task</button>
+</form>

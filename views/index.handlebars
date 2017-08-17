@@ -3,7 +3,7 @@
 <h2>Tasks that Are Not Done!</h2>
 
 <ul>
-  {{#each planner}}
+  {{#each Planners}}
     {{#unless this.done}}
       <li>
         {{this.task_name}}
@@ -22,7 +22,7 @@
 <h2>Tasks that are Completed!</h2>
 
 <ul>
-  {{#each planner}}
+  {{#each Planners}}
     {{#if this.done}}
       <li>
         {{this.task_name}}

@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "",
+    "password": "Unicorn17!",
     "database": "weeklyPlanner_DB",
     "host": "localhost",
     "dialect": "mysql"

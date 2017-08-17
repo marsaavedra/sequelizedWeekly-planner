@@ -3,11 +3,20 @@ var express = require("express");
 var router = express.Router();
 
 // Import the model (planner.js) to use its database functions.
-var planner = require("../models/planner.js");
+//var planner = require("../models/planner.js");
+
+
+// Requiring our models for syncing
+var db = require("../models");
+
+
 
 // Create all our routes and set up logic within those routes where required.
+console.log("db test: ", db.planner);
 router.get("/", function(req, res) {
-  planner.all(function(data) {
+  db.planner.findAll({
+      include:[{model: db.done}]
+  }).then(function(data) {
     var hbsObject = {
       planner: data
     };
@@ -20,7 +29,7 @@ router.get("/", function(req, res) {
 
 router.post("/", function(req, res) {
     console.log ("its running");
-  planner.create([
+  db.planner.create([
     "task_name", "done"
   ], [
     req.body.task_name, req.body.done
@@ -34,7 +43,7 @@ router.put("/:id", function(req, res) {
 
   console.log("condition", condition);
 
-  planner.update({
+  db.planner.update({
     done: req.body.done
   }, condition, function() {
     res.redirect("/");

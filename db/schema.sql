@@ -1,7 +1,7 @@
 
 -- Create the database weeklyPlanner_db
-CREATE DATABASE sequelizedWeeklyPlanner_db;
-USE `sequelizedWeeklyPlanner_db`;
+CREATE DATABASE xog3rtefdqn0s51b;
+USE `xog3rtefdqn0s51b`;
 
 -- Create the table 'planner'
 CREATE TABLE `planner`
